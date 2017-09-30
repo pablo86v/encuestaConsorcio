@@ -1,11 +1,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyAiLXOSOkhueh8okKVPurY04xD5Lfuwi74',
-    authDomain: 'login-56358.firebaseapp.com',
-    databaseURL: "https://login-56358.firebaseio.com",
-    projectId: "login-56358",
-    storageBucket: "login-56358.appspot.com",
-    messagingSenderId: "488924503844"
+    apiKey: "AIzaSyDinB14gqByjsnmvAXl_zC0E6bKZUvtn7c",
+    authDomain: "encuestaconsorcio.firebaseapp.com",
+    databaseURL: "https://encuestaconsorcio.firebaseio.com",
+    projectId: "encuestaconsorcio",
+    storageBucket: "encuestaconsorcio.appspot.com",
+    messagingSenderId: "525197780015"
   }
 };

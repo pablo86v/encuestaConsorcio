@@ -8,30 +8,30 @@ import 'rxjs/add/operator/map';
 
 import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 /*
-  Generated class for the AuthServiceProvider provider.
+  Generated class for the DataProvider provider.
 
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular DI.
 */
 @Injectable()
-export class AuthServiceProvider {
+export class DataProvider {
 
-  usuario:string;
+  votacion:string;
  items: FirebaseListObservable<any[]>;
 
   constructor(public http: Http,public db: AngularFireDatabase) {
-    console.log('Hello AuthServiceProvider Provider');
+    console.log('Hello DataProvider Provider');
     
   }
 
 
-public setItem(){
-   this.items.push({usuario:this.usuario});
+public setItem(votacion){
+   this.items.push({votacion:votacion});
    
  }
 
 public getItems(){
-  this.items = this.db.list('/usuarios');
+  this.items = this.db.list('/votacion');
  
   return this.items;
 }

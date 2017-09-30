@@ -6,7 +6,7 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 
 
-//Páginas
+//Pï¿½ginas
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
@@ -18,6 +18,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from '../environments/environment';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { DataProvider } from '../providers/data/data';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     AuthServiceProvider,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthServiceProvider
+    AuthServiceProvider,
+    DataProvider
   ]
 })
 export class AppModule {}
