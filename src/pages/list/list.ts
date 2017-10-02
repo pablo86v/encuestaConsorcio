@@ -1,37 +1,47 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
+import { Votacion } from '../../entidades/votacion';
+
+import { DataProvider } from '../../providers/data/data';
 
 @Component({
   selector: 'page-list',
   templateUrl: 'list.html'
 })
 export class ListPage {
-  selectedItem: any;
-  icons: string[];
-  items: Array<{title: string, note: string, icon: string}>;
+  objVotacion: Votacion;
+  items: any[];
+  cantVotoMacetas: number = 0;
+  cantVotoMatafuegos: number = 0;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
-    this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
-    this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-    'american-football', 'boat', 'bluetooth', 'build'];
+  constructor(public navCtrl: NavController, public navParams: NavParams, public data: DataProvider) {
+    this.getVotacion();
+    this.getResults();
+  }
 
-    this.items = [];
-    for (let i = 1; i < 11; i++) {
-      this.items.push({
-        title: 'Item ' + i,
-        note: 'This is item #' + i,
-        icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-      });
+
+  getVotacion() {
+    this.data.getItems().subscribe(
+      datos => this.items = datos,
+      error => console.error(error),
+      () => console.log("ok")
+    );
+  }
+
+
+  getResults() {
+    for (let item of this.items) {
+      if (item.voto == "maceta") {
+        this.cantVotoMacetas += 1;
+      } else if (item.voto == "matafuegos") {
+        this.cantVotoMatafuegos += 1;
+      }
     }
   }
 
-  itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
-    this.navCtrl.push(ListPage, {
-      item: item
-    });
-  }
-}
+
+
+
+
+}//class

@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 import { App, ViewController } from 'ionic-angular';
+import { ToastController } from 'ionic-angular';
+
+// Entidades
 import { Usuario } from '../../entidades/usuario';
 import { Votacion } from '../../entidades/votacion';
 
+// Pages
+import { ListPage } from '../../pages/list/list';
+import { LoginPage } from '../../pages/login/login';
+
 //Providers
-import { AngularFireDatabase, FirebaseListObservable } from 'angularfire2/database';
 import { DataProvider } from '../../providers/data/data';
 
 
@@ -22,16 +28,27 @@ export class HomePage {
 
 
   constructor(public navCtrl: NavController, public viewCtrl: ViewController, public appCtrl:
-    App, public data: DataProvider) {
+    App, public data: DataProvider, public toastCtrl: ToastController) {
 
     this.getVotacion();
-    this.objVotacion = new Votacion
+    this.objVotacion = new Votacion();
+   }
+
+   presentToast(textToShow) {
+    const toast = this.toastCtrl.create({
+      message: textToShow,
+      duration: 2000,
+      position: 'middle'
+    });
+    toast.onDidDismiss(() => {
+      console.log('Dismissed toast');
+    });
+    toast.present();
   }
 
   getVotacion() {
-
     this.data.getItems().subscribe(
-      datos => console.info(this.items = datos),
+      datos => this.items = datos,
       error => console.error(error),
       () => console.log("ok")
     );
@@ -39,16 +56,27 @@ export class HomePage {
 
 
   votar(voto) {
-
-     this.objVotacion.usuario = localStorage.getItem("usuario");
-     this.objVotacion.voto = voto;
-
-    // let aux = "{\"usuario\":\"" + localStorage.getItem("usuario") + "\",\"voto\":\"" + voto + "\"}";
-
-      
-     this.data.setItem(this.objVotacion);
-
+    if(this.validateUser()){
+      this.objVotacion.usuario = localStorage.getItem("usuario");
+      this.objVotacion.voto = voto;
+    
+      this.data.setItem(this.objVotacion);
+      this.navCtrl.push(ListPage);
+    }
   }
 
+  validateUser():boolean{
+    let result : boolean = true;
+    for (let item of this.items) {
+      if (item.usuario ==  localStorage.getItem("usuario")){
+        this.presentToast("El usuario ya emitió su voto.");
+        result = false;
+        break;
+      }
+    }
+    return result;  
+  }
+
+ 
 
 }//class
