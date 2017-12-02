@@ -86,3 +86,26 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+.toolbar-background-md{
+  background:    #27668d   !important;
+}
+
+.toolbar-title-md {
+  color : white !important;
+
+}
+
+ion-content{
+  background-color: #beddf0 !important;
+}
+
+
+ion-label,ion-select,ion-item,h3,p{font-family: 'Pacifico', cursive !important;}
+
+button,ion-title,ion-card-header{
+  font-family: 'Patrick Hand', cursive !important;
+}
+
+
+

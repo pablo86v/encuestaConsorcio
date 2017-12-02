@@ -1,17 +1,29 @@
 page-login {
-    .form-login{
-        border: 2px solid green;
-        border-radius: 20px;
-      }
-      
-      .margin{
-        margin-left :1%;
-        margin-right : 1%;
-      
-      }
+     
+
+  .margin{
+    margin-left :1%;
+    margin-right : 1%;
+  }
+
+  .size{
+    width: 232px;
+  }
+
+  .btn-custom{
+    background-color: #27668d  ;
+    color: white;
+    padding: 20px;
+    font-size: 150%;
+    
+  }
 
 
+  ion-navbar{
+    background-color: #51392A;
+  }
 
+  
+  
 }
-
 

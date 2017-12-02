@@ -3815,6 +3815,26 @@ ion-icon::before {
   src: local("Noto Sans Bold"), local("Noto-Sans-Bold"), url("../assets/fonts/noto-sans-bold.woff") format("woff"), url("../assets/fonts/noto-sans-bold.ttf") format("truetype");
 }
 
+.toolbar-background-md {
+  background: #27668d   !important;
+}
+
+.toolbar-title-md {
+  color: white !important;
+}
+
+ion-content {
+  background-color: #beddf0 !important;
+}
+
+ion-label, ion-select, ion-item, h3, p {
+  font-family: 'Pacifico', cursive !important;
+}
+
+button, ion-title, ion-card-header {
+  font-family: 'Patrick Hand', cursive !important;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;
@@ -25199,12 +25219,80 @@ ion-navbar.toolbar {
   }
 }
 
-page-login .form-login {
-  border: 2px solid green;
+page-home ion-content {
+  background-color: #AEA29C;
+}
+
+page-home .pregunta {
+  background: #fff;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+page-home .progress:before {
+  content: '';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0px;
+  height: 42px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  -webkit-transition: all 2s ease;
+  transition: all 2s ease;
+}
+
+page-home .progress:hover:before {
+  width: 100%;
+}
+
+page-home .col-6 {
+  padding: 0 5px;
+}
+
+page-home .btn {
+  display: inline-block;
+  height: 150px;
+  width: 100%;
+  background: #56ade2;
+  border-radius: 30%;
+  padding: 10px;
+}
+
+page-home .btn-custom {
+  background-color: #27668d;
+  color: white;
+  padding: 15px;
+  font-size: 20px;
+  width: 100%;
   border-radius: 20px;
+}
+
+page-list .card {
+  border-radius: 25px;
+}
+
+ion-card-header {
+  background-color: #27668d !important;
+  color: white !important;
 }
 
 page-login .margin {
   margin-left: 1%;
   margin-right: 1%;
+}
+
+page-login .size {
+  width: 232px;
+}
+
+page-login .btn-custom {
+  background-color: #27668d;
+  color: white;
+  padding: 20px;
+  font-size: 150%;
+}
+
+page-login ion-navbar {
+  background-color: #51392A;
 }

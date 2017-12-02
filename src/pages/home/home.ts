@@ -38,7 +38,7 @@ export class HomePage {
     const toast = this.toastCtrl.create({
       message: textToShow,
       duration: 2000,
-      position: 'middle'
+      position: 'bottom'
     });
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
@@ -75,6 +75,11 @@ export class HomePage {
       }
     }
     return result;  
+  }
+
+  irAResultados()
+  {
+    this.navCtrl.push(ListPage);
   }
 
  
